@@ -21,8 +21,8 @@ class TestIntegrationScan:
         scanner = self.build_scan_object()
         report = scanner.scan_history(module=scan_type, status=scan_status)
         for item in report:
-            if (item["critical_findings_count"] >= 0 or
-                    item["non_critical_findings_count"] >= 0):
+            if (item["critical_findings_count"] > 0 or
+                    item["non_critical_findings_count"] > 0):
                 return item["id"]
         return None
 
